@@ -3,7 +3,6 @@ defmodule Plug.Adapters.Cowboy.Conn do
   @moduledoc false
 
   def conn(req, transport) do
-    IO.inspect req
     {path, req} = :cowboy_req.path req
     {host, req} = :cowboy_req.host req
     {port, req} = :cowboy_req.port req
@@ -12,7 +11,22 @@ defmodule Plug.Adapters.Cowboy.Conn do
     {qs, req}   = :cowboy_req.qs req
     {peer, req} = :cowboy_req.peer req
     {remote_ip, _} = peer
-
+    IO.puts "===================================="
+    IO.inspect path
+    IO.puts "===================================="
+    IO.inspect host
+    IO.puts "===================================="
+    IO.inspect port
+    IO.puts "===================================="
+    IO.inspect meth
+    IO.puts "===================================="
+    IO.inspect hdrs
+    IO.puts "===================================="
+    IO.inspect qs
+    IO.puts "===================================="
+    IO.inspect peer
+    IO.puts "===================================="
+    IO.inspect remote_ip
     %Plug.Conn{
       adapter: {__MODULE__, req},
       host: host,
