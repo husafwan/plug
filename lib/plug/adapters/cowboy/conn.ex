@@ -3,6 +3,7 @@ defmodule Plug.Adapters.Cowboy.Conn do
   @moduledoc false
 
   def conn(req, transport) do
+    IO.inspect req
     {path, req} = :cowboy_req.path req
     {host, req} = :cowboy_req.host req
     {port, req} = :cowboy_req.port req
